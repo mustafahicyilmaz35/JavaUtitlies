@@ -18,14 +18,35 @@ public class Hello {
 		//System.out.println(myArrayList.get(1));
 		
 		myArrayList.add(names);
-		myArrayList.Insert(2, "Kemal");
-		myArrayList.Insert(3, "Nuri");
+		//myArrayList.Insert(2, "Kemal");
+		//myArrayList.Insert(3, "Nuri");
 		for(int i = 0; i < names.length + 2; i++) {
 			
 			System.out.println(myArrayList.get(i));
 		}
 
 		System.out.println(myArrayList.toString());
+		
+		System.out.println(myArrayList.Count());
+		
+		myArrayList.Contains("ayþe");
+		
+		myArrayList.Remove("ayþe");
+		
+		
+		
+		
+		myArrayList.Contains("Ali");
+		
+		myArrayList.Contains("Ahmet");
+		myArrayList.Contains("feridun");
+		
+		System.out.println(myArrayList.Indexof("Feridun"));
+		System.out.println(myArrayList.Indexof("Ali"));
+		
+		
+		
+		
 	}
 	
 	
@@ -114,12 +135,100 @@ class ArrayList<T>{
 		
 		
 	}
+	
+	
+	
+	int Count() {
+		
+		int counter = 0;
+		
+		for(int i = 0; i < this.arr.length; i++) {
+			
+			if(this.arr[i] != null) {
+				
+				counter++;
+			}
+			
+		}
+		
+		return counter;
+		
+	}
 
 	@Override
 	public String toString() {
 		return "ArrayList [arr=" + Arrays.toString(arr) + ", length=" + length + "]";
 	}
 	
+	void Remove(T t) {
+		
+		
+		Object[] deletedArray = new Object[this.arr.length -1];
+		for(int i = 0, j=0; i < this.arr.length; i++) {
+			
+			if(this.arr[i] == t) {
+				
+				continue;
+			}
+			
+			deletedArray[j++] = this.arr[i];
+		}
+		
+		
+		System.out.println(Arrays.toString(deletedArray));
+		
+	}
+	
+	
+	void Contains(T t) {
+		
+		int count = 0;
+		
+		for(int i = 0; i < this.arr.length; i++) {
+			
+			if(this.arr[i] == t) {
+				
+				System.out.println(t +" isimli eleman " + i + " numaralý indextedir.");
+				count++;
+				break;
+			}
+			
+			
+		}
+		
+		if(count == 0) {
+			
+			System.out.println(t + " bulunamadý");
+		}
+		
+	}
+	
+	
+	int Indexof(T t) {
+		
+		
+		int indexNumber = 0;
+		
+		
+		
+		for(int i = 0; i < this.arr.length; i++) {
+			
+			if(this.arr[i] == t) {
+				
+				indexNumber = i;
+				break;
+				
+			}else {
+				indexNumber = -1;
+			}
+	
+			
+		}
+		
+		return indexNumber;
+
+
+	}
 	
 	
 }
