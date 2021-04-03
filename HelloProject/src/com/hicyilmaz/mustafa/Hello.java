@@ -6,22 +6,36 @@ public class Hello {
 
 	public static void main(String[] args) {
 		
-		System.out.println("Merhaba");
 		
-		String[] names = {"Mustafa","Ahmet","Ali","ayþe","Mustafa","Ahmet","Ali","ayþe","Mustafa","Ahmet","Ali","ayþe","Mustafa","Ahmet","Ali","ayþe","Mustafa","Ahmet","Ali","ayþe","Mustafa","Ahmet","Ali","ayþe","Mustafa","Ahmet","Ali","ayþe"};
+		
+		String[] names = {"Mustafa","Ahmet","Ali","ayþe"};
 		
 		ArrayList<String> myArrayList = new ArrayList<String>();
 		
+		//myArrayList.Insert(1, "Kemal");
+		
+		//myArrayList.get(1);
+		//System.out.println(myArrayList.get(1));
+		
 		myArrayList.add(names);
-		for(int i = 0; i < names.length; i++) {
+		myArrayList.Insert(2, "Kemal");
+		myArrayList.Insert(3, "Nuri");
+		for(int i = 0; i < names.length + 2; i++) {
 			
 			System.out.println(myArrayList.get(i));
 		}
 
+		System.out.println(myArrayList.toString());
 	}
 	
 	
+	
+	
 }
+
+
+
+
 
 
 class ArrayList<T>{
@@ -80,5 +94,32 @@ class ArrayList<T>{
 		}
 		
 	}
+	
+	
+	void Insert(int i, T t) {
+		
+		
+		
+		for(int j = this.length-1; j > i; j--) {
+			
+			this.arr[j]=this.arr[j-1];
+			
+		}
+		
+		
+		
+		this.arr[i] = t;
+		
+		
+		
+		
+	}
+
+	@Override
+	public String toString() {
+		return "ArrayList [arr=" + Arrays.toString(arr) + ", length=" + length + "]";
+	}
+	
+	
 	
 }
